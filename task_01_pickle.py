@@ -27,7 +27,7 @@ class CustomObject:
             return None
 
     @classmethod
-    def  deserialize(cls, filename):
+    def deserialize(cls, filename):
         """Loads an object from a file, or returns None if it fails."""
         try:
             with open(filename, "rb") as f:

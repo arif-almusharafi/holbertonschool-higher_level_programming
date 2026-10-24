@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Script that lists the states matching a name safely from SQL injection."""
+"""Script that lists all cities with the name of their state."""
 import MySQLdb
 import sys
 
@@ -11,8 +11,10 @@ if __name__ == "__main__":
                            db=sys.argv[3])
     cur = conn.cursor()
 
-    state = sys.argv[4]
-    cur.execute(" ")
+    cur.execute("SELECT cities.id, cities.name, states.name "
+                "FROM states "
+                "JOIN cities on cities.state_id = states.id "
+                "ORDER BY cities.id")
 
     rows = cur.fetchall()
 

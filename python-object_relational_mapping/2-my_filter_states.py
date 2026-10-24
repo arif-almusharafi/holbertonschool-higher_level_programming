@@ -12,7 +12,7 @@ if __name__ == "__main__":
     cur = conn.cursor()
 
     state = sys.argv[4]
-    query = ("SELECT * FROM states WHERE name = '{}' "
+    query = ("SELECT * FROM states WHERE name = BINARY '{}' "
              "ORDER BY id ASC").format(state)
     cur.execute(query)
 
